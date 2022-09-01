@@ -1,7 +1,7 @@
 #!/bin/bash
-STR="7-everybody"
+STR="8-James_Bond"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "chmod ugo+x hello">>$STR;
+echo -e "chmod u=---,g=---,o=rwx hello">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
