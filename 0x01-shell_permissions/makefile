@@ -1,7 +1,7 @@
 #!/bin/bash
 STR="12-directory_permissions"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "mkdir my_dir -m 751">>$STR;
+echo -e "chgrp school hello">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
