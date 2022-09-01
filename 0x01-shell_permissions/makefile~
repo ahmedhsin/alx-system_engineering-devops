@@ -1,0 +1,7 @@
+#!/bin/bash
+STR="filename"
+echo -e "#!/bin/bash\n" >> $STR;
+#ur command here
+echo "">>$STR;
+echo "\n">>$STR;
+chmod u+x $STR;
