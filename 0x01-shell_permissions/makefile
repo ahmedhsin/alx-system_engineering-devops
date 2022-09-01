@@ -2,7 +2,7 @@
 STR="6-multiple_permissions"
 echo -e "#!/bin/bash" >> $STR;
 echo -e "chmod 777 hello">>$STR;
-chmod a+r,ug+x $STR;
+chmod ug+x,o+r hello#$STR;
 git add *
 git commit -m "blablabla"
 git push
