@@ -1,7 +1,7 @@
 #!/bin/bash
-STR="9-John_Doe"
+STR="10-mirror_permissions"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "chmod 753 hello">>$STR;
+echo -e "chmod --reference=olleh hello">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
