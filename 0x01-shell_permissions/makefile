@@ -1,7 +1,7 @@
 #!/bin/bash
-STR="0-iam_betty"
+STR="1-who_am_i"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "su betty">>$STR;
+echo -e "whoami">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
