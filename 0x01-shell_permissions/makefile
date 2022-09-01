@@ -1,7 +1,7 @@
 #!/bin/bash
-STR="4-empty"
+STR="5-execute"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "touch hello">>$STR;
+echo -e "chmod u+x hello">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
