@@ -1,5 +1,5 @@
 #!/bin/bash
-STR="12-directory_permissions"
+STR="13-change_group"
 echo -e "#!/bin/bash" >> $STR;
 echo -e "chgrp school hello">>$STR;
 chmod u+x $STR;
