@@ -1,7 +1,7 @@
 #!/bin/bash
-STR="6-multiple_permissions"
+STR="7-everybody"
 echo -e "#!/bin/bash" >> $STR;
-echo -e "chmod ug+x,o+r hello">>$STR;
+echo -e "chmod ugo+x hello">>$STR;
 chmod u+x $STR;
 git add *
 git commit -m "blablabla"
