@@ -1,8 +1,8 @@
 #!/bin/bash
-STR="100-change_owner_and_group"
-echo -e "#!/bin/bash" >> $STR;
-echo -e "chown vincent:staff *">>$STR;
-chmod u+x $STR;
+filename="mytask-0"
+echo "#!/bin/bash" >> $filename;
+echo "HELLO FROM MAKE FILE">>$filename;
+chmod u+x $filename;
 git add *
-git commit -m "blablabla"
+git commit -m "direct commit"
 git push
