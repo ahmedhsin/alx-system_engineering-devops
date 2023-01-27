@@ -1,0 +1,6 @@
+#!/bin/bash
+
+trap "echo Hello World" SIGINT
+while [[ true ]] ; do
+    sleep 1
+done
