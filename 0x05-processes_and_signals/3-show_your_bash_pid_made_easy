@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #print current pid - bash
-
-pgrep -u $(whoami),root bash > pid_list
+# shellcheck disable=SC2013
+pgrep -u "$(whoami)",root bash > pid_list
 for i in $(cat pid_list)
 do
-	echo $i' bash'
+	echo "$i bash"
 done
+rm pid_list
