@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# script print best school 10 times
+echo $(expr 50 % 50)
