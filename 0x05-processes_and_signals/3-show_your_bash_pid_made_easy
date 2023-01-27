@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#print current pid - bash
+
+pgrep -u $(whoami),root bash > pid_list
+for i in $(cat pid_list)
+do
+	echo $i' bash'
+done
