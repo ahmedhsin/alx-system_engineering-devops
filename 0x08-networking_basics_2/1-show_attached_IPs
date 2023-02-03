@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Change your home IP
+ifconfig > tst
+ruby -e 'f = File.read("tst");puts f.scan(/inet\s([\d\.]+)/).join("\n")'
+rm tst
