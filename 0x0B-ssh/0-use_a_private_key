@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Use a private key
+ssh ubuntu@54.209.141.133;
