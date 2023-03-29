@@ -3,9 +3,9 @@
 apt-get update -y
 apt-get install -y nginx
 chown -R "$USER":"$USER" /var/www
-chown -R "$USER":"$USER" /etc/nginx
+chown -R "$USER":"$USER" /etc/nginx/
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 nginx
 redirect="location /redirect_me{ return 301 https://www.facebook.com/sescozahmed/; }"
 sed -i 's|# pass PHP scripts to FastCGI server|'"$redirect"'|' /etc/nginx/sites-available/default
-nginx -s reload
+sudo service nginx restart
