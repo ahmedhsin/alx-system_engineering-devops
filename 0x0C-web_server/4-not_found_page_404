@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#install nignx -- redirection
+apt-get update -y
+apt-get install -y nginx
+chown -R "$USER":"$USER" /var/www
+chown -R "$USER":"$USER" /etc/nginx/
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+nginx
+redirect="location /redirect_me{ return 301 https://www.facebook.com/sescozahmed/; }"
+sed -i 's|# pass PHP scripts to FastCGI server|'"$redirect"'|' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+errorpage="error_page 404 /404.html;\ntobereplaced"
+location_forrr="location /404.html { root /var/www/html; }"
+sed -i 's|# Add index.php to the list if you are using PHP|'"$errorpage"'|' /etc/nginx/sites-available/default
+sed -i 's|tobereplaced|'"$location_forrr"'|' /etc/nginx/sites-available/default
+service nginx restart
