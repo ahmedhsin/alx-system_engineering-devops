@@ -8,4 +8,4 @@ echo "Hello World!" > /var/www/html/index.nginx-debian.html
 nginx
 redirect="location /redirect_me{ return 301 https://www.facebook.com/sescozahmed/; }"
 sed -i 's|# pass PHP scripts to FastCGI server|'"$redirect"'|' /etc/nginx/sites-available/default
-sudo service nginx restart
+service nginx restart
