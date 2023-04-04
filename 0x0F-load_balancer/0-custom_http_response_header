@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 #custom http response
+apt-get update -y
+apt-get install -y nginx
+chown -R "$USER":"$USER" /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
