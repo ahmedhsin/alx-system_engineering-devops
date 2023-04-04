@@ -1,22 +1,13 @@
 #!/usr/bin/env bash
-#custom http response
+#install nignx -- redirection
 apt-get update -y
 apt-get install -y nginx
 chown -R "$USER":"$USER" /var/www
+chown -R "$USER":"$USER" /etc/nginx/
+chown -R "$USER":"$USER" /usr/share/nginx/
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    server_name _;
-    location / {
-            # First attempt to serve request as file, then
-            # as directory, then fall back to displaying a 404.
-	    add_header X-Served-By \$hostname;
-            try_files $uri $uri/ =404;
-    }
-    location /redirect_me{
-            return 301 https://www.facebook.com/sescozahmed/;
-    }
-}" | sudo tee /etc/nginx/sites-available/default > /dev/null
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+sed -i "/listen 80 default_server;/a add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server;/a error_page 404 /404.html; location = /404.html { root /usr/share/nginx/html; internal; }" /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server/a \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+service nginx restart
