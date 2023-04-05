@@ -1,3 +1,4 @@
+#edit using puppet
 exec { 'custom name':
   command  => 'sudo apt update -y;
 	sudo apt install nginx -y;
