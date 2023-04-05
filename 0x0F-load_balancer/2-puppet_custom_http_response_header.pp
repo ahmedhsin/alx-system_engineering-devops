@@ -11,7 +11,7 @@ file { '/etc/nginx/sites-available/default':
   content => @(END/L),
   server {
       listen 80 default_server;
-      add_header X-Served-By $(hostname);
+      add_header X-Served-By \"${hostname}\";
       listen [::]:80 default_server;
       root /var/www/html;
       index index.html index.htm index.nginx-debian.html;
