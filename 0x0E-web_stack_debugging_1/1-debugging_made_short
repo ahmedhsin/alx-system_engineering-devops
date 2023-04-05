@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#fixing symbolic in site-enbaled
+sudo ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+pkill "nginx"
