@@ -1,0 +1,13 @@
+bla
+bla
+blaaa
+blabla
+blabldddddda
+frontend my_frontend
+\tbind 127.0.0.1:80
+\tdefault_backend my_backend
+
+frontend my_frontend
+	bind 127.0.0.1:80
+	default_backend my_backend
+

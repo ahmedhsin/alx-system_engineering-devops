@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#custom
+apt-get update -y
+apt-get install --no-install-recommends software-properties-common -y
+add-apt-repository ppa:vbernat/haproxy-2.0 -y
+apt-get install haproxy=2.0.\* -y
+sed -i "\$afrontend my_frontend\n\tbind *80\n\tdefault_backend my_backend\n" /etc/haproxy/haproxy.cfg
+sed -i "\$abackend my_backend\n\tserver web-01 54.209.141.133:80\n\tserver web-02 100.26.221.3:80\n" /etc/haproxy/haproxy.cfg
+echo "ENABLED=1" > /etc/default/haproxy
+sudo service haproxy start
