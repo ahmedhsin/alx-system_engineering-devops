@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#world wide web info about sub domain
+
+getInfo () {
+	dig +noall +answer "$1" | awk -v subdomain="$2" '{print "The subdomain", subdomain,"is a", $4 ,"record and points to",$5}'
+}
+if [ $# -eq 1 ]; then
+
+	getInfo www."$1" www
+	getInfo lb-01."$1" lb-01
+	getInfo web-01."$1" web-01
+	getInfo web-02."$1" web-02
+else
+	getInfo "$2"."$1" "$2"
+fi
