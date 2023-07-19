@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+#create a backup
+DATE=$(date +%d-%m-%Y);
+mysqldump -uroot -p$1 --all-databases > $DATE.sql > /dev/null 2>&1
+tar -czvf $DATE.tar.gz $DATE.sql > /dev/null 2>&1
+rm $DATE.sql
