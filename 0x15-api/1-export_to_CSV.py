@@ -17,7 +17,7 @@ def main():
         if todo.get('userId') == user.get('id'):
             user_todos.append(todo)
 
-    with open("USER_ID.csv", mode='w') as file:
+    with open(f"{user.get('id')}.csv", mode='w') as file:
         user_writer = csv.writer(
             file, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
         for todo in user_todos:

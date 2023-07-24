@@ -21,7 +21,7 @@ def main():
                 'username': user.get('username')
             })
     user_json = {f"{user.get('id')}": user_todos}
-    with open('USER_ID.json', mode='w') as file:
+    with open(f"{user.get('id')}.json", mode='w') as file:
         json.dump(user_json, file)
 
 
