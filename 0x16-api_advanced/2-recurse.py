@@ -15,10 +15,6 @@ def recurse(subreddit, hot_list=[], next=''):
         hot_list = hot_list + children
         after = r.json()['data']['after']
         next = f'after={after}'
-        if (next.split('=')[1] == 'None'):
-            if len(hot_list) == 0:
-                return None
-            return hot_list
         return recurse(subreddit, hot_list, next)
     except KeyError:
-        return None
+        return (None if len(hot_list) == 0 else hot_list)
