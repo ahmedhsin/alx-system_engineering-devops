@@ -8,7 +8,7 @@ def top_ten(subreddit):
     """ret num of sub to given reddit"""
     userAgent = """Mozilla/5.0 (X11; Linux x86_64)\
      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"""
-    url = 'https://www.reddit.com/r/{}/top.json'
+    url = 'https://www.reddit.com/r/{}/hot.json'
     r = requests.get(url.format(subreddit), headers={'user-agent': userAgent})
     try:
         children = r.json()['data']['children']
