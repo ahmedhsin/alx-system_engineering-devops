@@ -15,4 +15,4 @@ def top_ten(subreddit):
         for i in range(10):
             print(children[i]['data']['title'])
     except KeyError:
-        print(None)
+        print('None')
