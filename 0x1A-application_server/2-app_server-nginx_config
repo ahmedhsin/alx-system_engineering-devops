@@ -1,0 +1,9 @@
+server {
+        listen 80;
+        server_name _;
+        add_header X-Served-By 114379-web-01;
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/home/ubuntu/AirBnB_clone_v2/web_flask/0-hello_route.sock;
+        }
+}
